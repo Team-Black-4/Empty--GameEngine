@@ -53,8 +53,7 @@ class SceneManager {
         this.rock2 = new WorldObject(this.game, path, -200, -200, true, 2);
         this.tile = new WorldObject(this.game,"./assets/background/1 Tiles/Map_tile_01.png",-400,-200,true,2);
         this.shop = new Shop(this.game, -400, -100);
-        ASSET_MANAGER.pauseBackgroundMusic();
-        ASSET_MANAGER.playAsset("./assets/Music/pirates8bit.mp3");
+
     };
 
     loadMap() {
@@ -74,18 +73,27 @@ class SceneManager {
         this.game.addEntity(this.rock2);
         this.game.addEntity(this.tile);
         
-
+        //ASSET_MANAGER.pauseBackgroundMusic();
+        ASSET_MANAGER.playAsset("./assets/Music/pirates8bit.mp3");
         this.update();
     };
 
     loadGameover() {
         this.game.stage = "gameover";
         this.clearEntities();
+        ASSET_MANAGER.pauseBackgroundMusic();
         this.game.addEntity(new GameOver(this.game));
     };
 
     loadVictory() {
         this.game.stage = "victory";
+    };
+
+    updateAudio() {
+        var volume = document.getElementById("volume").value;
+
+        ASSET_MANAGER.adjustVolume(volume);
+
     };
 
     update() {
@@ -149,6 +157,18 @@ class SceneManager {
         
         this.x = this.ship.x - xmid;
         this.y = this.ship.y - ymid;
+
+        if (this.game.gamepad != null && Math.abs(this.game.gamepad.axes[2]) > 0.3 && this.menuButtonTimer > this.menuButtonCooldown) {
+            if (this.game.gamepad.axes[2] > 0.3) {
+                document.getElementById("volume").value = parseFloat(document.getElementById("volume").value, 10) + 0.05;
+            } 
+            if (this.game.gamepad.axes[2] < -0.3) {
+                document.getElementById("volume").value -= 0.05;
+            }
+            this.menuButtonTimer = 0;
+        }
+
+        this.updateAudio();
     };
 
     draw(ctx) {

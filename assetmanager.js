@@ -83,6 +83,15 @@ class AssetManager {
         audio.play();
     };
 
+    adjustVolume(volume) {
+        for (var key in this.cache) {
+            let asset = this.cache[key];
+            if (asset instanceof Audio) {
+                asset.volume = volume;
+            }
+        }
+    }
+
     pauseBackgroundMusic() {
         for (var key in this.cache) {
             let asset = this.cache[key];

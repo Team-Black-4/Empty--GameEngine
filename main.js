@@ -21,8 +21,8 @@ ASSET_MANAGER.queueDownload("./assets/Music/pirates8bit.mp3");
 
 
 ASSET_MANAGER.downloadAll(() => {
-
-    //ASSET_MANAGER.autoRepeat("./assets/Music/pirates8bit.mp3");
+    
+    ASSET_MANAGER.autoRepeat("./assets/Music/pirates8bit.mp3");
 
     const canvas = document.getElementById("gameWorld");
     const ctx = canvas.getContext("2d");

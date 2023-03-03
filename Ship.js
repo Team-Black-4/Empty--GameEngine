@@ -104,7 +104,7 @@ class Ship {
         }
         
         this.game.addEntity(new CannonBall(this.game, this.x + 40, this.y + 50, this.angle)); //+40 +50 to center into ship
-      
+        ASSET_MANAGER.playAsset("./assets/Music/Shoot2.mp3");
       
         //if(game.keys['2']) {
             //this.game.addEntity(new Fireball(this.game, this.x + 40, this.y + 50, this.angle));
@@ -125,6 +125,8 @@ class Ship {
         }
 
         this.game.addEntity(new Fireball(this.game, this.x + 40, this.y + 50, this.angle));
+        ASSET_MANAGER.playAsset("./assets/Music/fire-woosh.wav");
+
     }
 
     fireharpoon() {
@@ -141,6 +143,8 @@ class Ship {
         }
 
         this.game.addEntity(new Harpoon(this.game, this.x + 40, this.y + 50, this.angle));
+        ASSET_MANAGER.playAsset("./assets/Music/Shoot1.mp3");
+
     }
 
     buyDamage() {

@@ -36,6 +36,8 @@ class SceneManager {
 
     loadTitle() {
         this.game.stage = "title";
+        ASSET_MANAGER.pauseBackgroundMusic();
+        this.updateAudio();
         this.clearEntities();
         this.game.addEntity(new Title(this.game));
 
@@ -53,7 +55,7 @@ class SceneManager {
         this.rock2 = new WorldObject(this.game, path, -200, -200, true, 2);
         this.tile = new WorldObject(this.game,"./assets/background/1 Tiles/Map_tile_01.png",-400,-200,true,2);
         this.shop = new Shop(this.game, -400, -100);
-
+        ASSET_MANAGER.playAsset("./assets/Music/StartMenu.wav");
     };
 
     loadMap() {
@@ -79,10 +81,15 @@ class SceneManager {
     };
 
     loadGameover() {
+        ASSET_MANAGER.pauseBackgroundMusic();
         this.game.stage = "gameover";
         this.clearEntities();
-        ASSET_MANAGER.pauseBackgroundMusic();
+        //ASSET_MANAGER.playAsset("./assets/Music/pirates8bit.mp3");
         this.game.addEntity(new GameOver(this.game));
+        this.update()
+
+        ASSET_MANAGER.playAsset("./assets/Music/EndScreen.mp3");
+
     };
 
     loadVictory() {

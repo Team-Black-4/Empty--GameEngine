@@ -16,13 +16,24 @@ ASSET_MANAGER.queueDownload("./assets/enemies/monster.png");
 ASSET_MANAGER.queueDownload("./assets/enemies/monster1.png");
 //music
 ASSET_MANAGER.queueDownload("./assets/Music/pirates8bit.mp3");
+ASSET_MANAGER.queueDownload("./assets/Music/EndScreen.mp3");
+ASSET_MANAGER.queueDownload("./assets/Music/StartMenu.wav");
+
+
 //Sound effect
-//ASSET_MANAGER.queueDownload("./assets/Music/Shoot1.mp3")
+ASSET_MANAGER.queueDownload("./assets/Music/Shoot1.mp3")
+ASSET_MANAGER.queueDownload("./assets/Music/Shoot2.mp3")
+ASSET_MANAGER.queueDownload("./assets/Music/fire-woosh.wav");
+
 
 
 ASSET_MANAGER.downloadAll(() => {
     
     ASSET_MANAGER.autoRepeat("./assets/Music/pirates8bit.mp3");
+    ASSET_MANAGER.autoRepeat("./assets/Music/EndScreen.mp3");
+    ASSET_MANAGER.autoRepeat("./assets/Music/StartMenu.wav");
+
+
 
     const canvas = document.getElementById("gameWorld");
     const ctx = canvas.getContext("2d");

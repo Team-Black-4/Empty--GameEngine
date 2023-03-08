@@ -75,7 +75,7 @@ class SceneManager {
         this.game.addEntity(this.rock2);
         this.game.addEntity(this.tile);
         
-        //ASSET_MANAGER.pauseBackgroundMusic();
+        ASSET_MANAGER.pauseBackgroundMusic();
         ASSET_MANAGER.playAsset("./assets/Music/pirates8bit.mp3");
         this.update();
     };

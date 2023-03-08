@@ -9,6 +9,7 @@ class GameOver {
         if(this.game.mouse != null) {
             if(this.game.mouse && (this.game.mouse.x >= 200 && this.game.mouse.x <= 500) && (this.game.mouse.y >= 300 && this.game.mouse.y <= 500) && this.game.click) {
                 this.game.camera.loadTitle();
+                ASSET_MANAGER.pauseBackgroundMusic();
             }
         }
     };
